@@ -257,6 +257,57 @@ textarea { resize: vertical; min-height: 110px; }
 .footer-note a { color: rgba(124,109,250,0.6); text-decoration: none; transition: color 0.3s; }
 .footer-note a:hover { color: var(--accent-light); }
 
+/* About section */
+.about-section {
+  background: var(--black-2);
+  border: 1px solid rgba(124,109,250,0.12);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  animation: fadeUp 0.7s 0.2s both;
+}
+.about-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(124,109,250,0.3);
+  background: var(--black-3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.about-text-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 0.4rem;
+}
+.about-text-name { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
+.about-text-bio { font-size: 0.75rem; line-height: 1.8; color: rgba(240,238,255,0.5); }
+
+/* Coming soon card */
+.work-card-soon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  background: rgba(124,109,250,0.03);
+  border: 1px dashed rgba(124,109,250,0.2);
+  gap: 1rem;
+  opacity: 0.7;
+}
+.soon-badge {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background: rgba(124,109,250,0.15);
+  color: var(--accent-light);
+  border: 1px solid rgba(124,109,250,0.2);
+}
+
 /* Work section */
 .work-section { margin-bottom: 3rem; }
 .work-section-label {
@@ -325,6 +376,15 @@ textarea { resize: vertical; min-height: 110px; }
     </div>
   </div>
 
+  <div class="about-section">
+    <div class="about-avatar">👨‍💻</div>
+    <div>
+      <div class="about-text-label">Who You're Working With</div>
+      <div class="about-text-name">Frankie — Web Developer</div>
+      <div class="about-text-bio">I build clean, fast, custom websites for small businesses and personal brands. Based in Maryland. Every site is built from scratch — no templates, no page builders.</div>
+    </div>
+  </div>
+
   <div class="work-section">
     <span class="work-section-label">Recent Work</span>
     <div class="work-grid">
@@ -338,6 +398,16 @@ textarea { resize: vertical; min-height: 110px; }
         </div>
         <span class="work-card-arrow">→</span>
       </a>
+      <div class="work-card-soon">
+        <div class="work-card-left">
+          <div class="work-card-icon">⏳</div>
+          <div>
+            <div class="work-card-name">More Coming Soon</div>
+            <div class="work-card-desc">New projects in progress</div>
+          </div>
+        </div>
+        <span class="soon-badge">In Progress</span>
+      </div>
     </div>
   </div>
 
@@ -454,6 +524,19 @@ textarea { resize: vertical; min-height: 110px; }
       <div class="form-group">
         <label for="notes">Anything Else?</label>
         <textarea id="notes" name="additional_notes" style="min-height:80px;" placeholder="Domain, hosting questions, social media integration, anything goes..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="referral">How Did You Hear About Me?</label>
+        <select id="referral" name="referral">
+          <option value="" disabled selected>Select one</option>
+          <option value="Linktree">Linktree</option>
+          <option value="Instagram">Instagram</option>
+          <option value="TikTok">TikTok</option>
+          <option value="Word of mouth">Word of mouth</option>
+          <option value="Google">Google</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
 
       <button type="submit" class="form-submit"><span>Send My Inquiry &rarr;</span></button>
