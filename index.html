@@ -180,7 +180,7 @@ body::after {
 /* Stats row */
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: rgba(124,109,250,0.1);
   border: 1px solid rgba(124,109,250,0.1);
@@ -194,8 +194,8 @@ body::after {
 }
 .stat-item:hover { background: rgba(124,109,250,0.05); }
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.7rem;
   font-weight: 600;
   color: var(--accent-light);
   line-height: 1;
@@ -626,10 +626,6 @@ textarea { resize: vertical; min-height: 110px; }
 
   <!-- Stats -->
   <div class="stats-row reveal">
-    <div class="stat-item">
-      <div class="stat-num" id="stat-sites">5+</div>
-      <div class="stat-label">Sites Built</div>
-    </div>
     <div class="stat-item">
       <div class="stat-num">24hr</div>
       <div class="stat-label">Response Time</div>
