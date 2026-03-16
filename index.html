@@ -301,6 +301,31 @@ body::after {
   border: 1px solid rgba(124,109,250,0.2);
 }
 
+/* Rich work card (with preview image) */
+.work-card-rich {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+}
+.work-card-rich .work-card-preview {
+  width: 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.work-card-rich:hover .work-card-preview { opacity: 1; }
+.work-card-rich .work-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  gap: 1rem;
+}
+
 /* Form card */
 .form-card {
   background: var(--black-2);
@@ -613,6 +638,25 @@ textarea { resize: vertical; min-height: 110px; }
           </div>
         </div>
         <span class="work-card-arrow">→</span>
+      </a>
+      <a href="../landscaping/index.html" target="_blank" rel="noopener" class="work-card work-card-rich">
+        <img
+          class="work-card-preview"
+          src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80"
+          alt="Verdant Landscapes demo site preview"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="work-card-bottom">
+          <div class="work-card-left">
+            <div class="work-card-icon">🌿</div>
+            <div>
+              <div class="work-card-name">Verdant Landscapes</div>
+              <div class="work-card-desc">Demo · Landscaping Austin TX · 3D hero · Booking form</div>
+            </div>
+          </div>
+          <span class="work-card-arrow">→</span>
+        </div>
       </a>
       <div class="work-card-soon">
         <div class="work-card-left">
