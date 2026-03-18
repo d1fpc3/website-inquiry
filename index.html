@@ -530,6 +530,80 @@ textarea { resize: vertical; min-height: 110px; }
 .sticky-cta a:hover { background: var(--accent-light); }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
+/* Services section */
+.services-section { margin-bottom: 3rem; }
+.services-section-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  display: block;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.service-card {
+  background: var(--black-2);
+  border: 1px solid rgba(124,109,250,0.15);
+  padding: 1.8rem 1.5rem;
+  position: relative;
+  transition: border-color 0.25s, background 0.25s;
+}
+.service-card:hover { border-color: rgba(124,109,250,0.4); background: rgba(124,109,250,0.04); }
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 1.5rem; right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.service-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.service-card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+.service-card-list {
+  list-style: none;
+  margin-bottom: 1.2rem;
+}
+.service-card-list li {
+  font-size: 0.7rem;
+  color: rgba(240,238,255,0.5);
+  line-height: 1.7;
+  padding-left: 1rem;
+  position: relative;
+}
+.service-card-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+  font-size: 0.6rem;
+}
+.service-card-price {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  border: 1px solid rgba(124,109,250,0.3);
+  padding: 0.3rem 0.75rem;
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -575,6 +649,7 @@ textarea { resize: vertical; min-height: 110px; }
       <span class="badge">E-Commerce</span>
       <span class="badge">Landing Pages</span>
       <span class="badge">Custom Builds</span>
+      <span class="badge">SEO Optimization</span>
     </div>
   </div>
 
@@ -597,6 +672,37 @@ textarea { resize: vertical; min-height: 110px; }
       <div class="about-text-label">Who You're Working With</div>
       <div class="about-text-name">Frank — Web Developer</div>
       <div class="about-text-bio">I build clean, fast, custom websites for small businesses and personal brands. Every site is built from scratch — no templates, no page builders.</div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="services-section reveal">
+    <span class="services-section-label">What I Offer</span>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-card-icon">💻</span>
+        <div class="service-card-title">Web Design &amp; Development</div>
+        <ul class="service-card-list">
+          <li>Custom-built from scratch — no templates</li>
+          <li>Business sites, portfolios, e-commerce</li>
+          <li>Landing pages &amp; personal brands</li>
+          <li>Mobile-first, fast-loading</li>
+          <li>Revision rounds included</li>
+        </ul>
+        <span class="service-card-price">Starting at $250</span>
+      </div>
+      <div class="service-card">
+        <span class="service-card-icon">📈</span>
+        <div class="service-card-title">SEO Optimization</div>
+        <ul class="service-card-list">
+          <li>On-page SEO — meta, titles, headings, alt text</li>
+          <li>Sitemap &amp; robots.txt setup</li>
+          <li>Google Search Console setup</li>
+          <li>Local SEO &amp; Google Business Profile</li>
+          <li>Page speed optimization</li>
+        </ul>
+        <span class="service-card-price">Add-on or standalone</span>
+      </div>
     </div>
   </div>
 
@@ -827,7 +933,7 @@ const observer = new IntersectionObserver((entries) => {
 revealEls.forEach(el => observer.observe(el));
 
 // Typewriter headline
-const words = ['Website?', 'Online Store?', 'Portfolio?', 'Landing Page?', 'Brand?'];
+const words = ['Website?', 'Online Store?', 'Portfolio?', 'Landing Page?', 'Brand?', 'SEO Strategy?'];
 let wi = 0, ci = 0, deleting = false;
 const tw = document.getElementById('typewriter');
 function typeLoop() {
