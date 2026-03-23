@@ -59,6 +59,13 @@ body::after {
   100% { background-position: 60px 60px; }
 }
 
+#matrix-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+}
+
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
@@ -628,6 +635,7 @@ textarea { resize: vertical; min-height: 110px; }
 </style>
 </head>
 <body>
+<canvas id="matrix-rain"></canvas>
 
 <!-- Availability banner -->
 <div class="avail-banner">
@@ -990,6 +998,33 @@ function updateProgress() {
 }
 requiredFields.forEach(f => f.addEventListener('input', updateProgress));
 requiredFields.forEach(f => f.addEventListener('change', updateProgress));
+
+// Matrix rain
+const matrixCanvas = document.getElementById('matrix-rain');
+const matrixCtx = matrixCanvas.getContext('2d');
+const matrixChars = '0123456789+-%$x'.split('');
+let matrixCols, matrixDrops;
+function matrixResize() {
+  matrixCanvas.width = window.innerWidth;
+  matrixCanvas.height = window.innerHeight;
+  matrixCols = Math.floor(matrixCanvas.width / 16);
+  matrixDrops = Array(matrixCols).fill(1);
+}
+matrixResize();
+window.addEventListener('resize', matrixResize);
+function matrixDraw() {
+  matrixCtx.fillStyle = 'rgba(10,10,15,0.05)';
+  matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+  matrixCtx.fillStyle = '#00FF41';
+  matrixCtx.font = '14px monospace';
+  matrixDrops.forEach((y, i) => {
+    const ch = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+    matrixCtx.fillText(ch, i * 16, y * 16);
+    if (y * 16 > matrixCanvas.height && Math.random() > 0.975) matrixDrops[i] = 0;
+    matrixDrops[i]++;
+  });
+}
+setInterval(matrixDraw, 50);
 </script>
 </body>
 </html>
